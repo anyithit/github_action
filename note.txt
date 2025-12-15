@@ -1,0 +1,40 @@
+Introduction - In the fast-paced world of software development, efficiency is everything. Waiting for manual tests to finish or tediously deploying code after every commit is a relic of the past. Enter GitHub Actions—the powerful, flexible automation engine baked right into your GitHub repository.
+
+Slide 1 - Continuous Integration (CI)
+Automated build and test of code changes whenever a developer commits or creates a Pull Request.
+(Checkout, Setup, Install Dependencies, Build, Test)
+Benefits: Faster feedback loop, catching bugs early, ensuring the main branch is always stable.
+
+Slide 2 - Continuous Delivery (CD)
+Automatically deploying the validated code to a staging or production environment after successful CI.
+(Artifact Handling, Deployment, Secrets Management)
+Benefits: Faster time to market, reduced human error, consistent releases.
+
+Slide 3 - GitHub Actions Workflow
+The complete automated process (e.g., CI/CD pipeline). Defined in a YAML file in the .github/workflows directory.
+(Workflow, Job, Step)
+
+Slide 4 - GitHub Actions Events
+The specific activity that triggers a workflow run (e.g., a push to a branch, a pull_request being opened, or a schedule).
+(Push, Pull Request, Schedule)
+
+Slide 5 - GitHub Actions Job
+A set of sequential steps that executes on the same runner. Jobs run in parallel by default but can be configured to run sequentially using needs.
+(Job, Step)
+
+Slide 6 - GitHub Actions Actions
+A single, reusable task within a step. You can use pre-built actions from the Marketplace (e.g., actions/checkout@v4) or write your own.
+(Actions, Action Marketplace)
+
+Slide 7 - GitHub Actions Runner
+The server that executes the jobs in your workflow. Can be GitHub-hosted (VMs provided by GitHub) or self-hosted (your own machine).
+(Runners, Self-hosted Runners, GitHub-hosted Runners)
+
+
+Diagram Suggestion
+Event -> Workflow -> Runner -> Job -> Step -> Action
+
+Cache
+Problem: Jobs on GitHub-hosted runners start in a fresh, clean VM every time. This means dependencies (like node_modules or vendor files) must be downloaded and installed repeatedly.
+Solution: Using the built-in actions/cache action to save these dependencies after the first run and restore them on subsequent runs.
+Benefit: Significantly reduced workflow run time and cost, especially for projects with many dependencies.
